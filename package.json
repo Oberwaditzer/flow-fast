@@ -2,6 +2,10 @@
   "name": "root",
   "private": true,
   "devDependencies": {
-    "lerna": "^5.1.5"
+    "lerna": "^5.1.5",
+    "nx": "^14.3.6"
+  },
+  "scripts": {
+    "dev": "lerna run dev"
   }
 }
