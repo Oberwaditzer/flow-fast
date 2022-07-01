@@ -2,10 +2,17 @@
   "name": "root",
   "private": true,
   "devDependencies": {
-    "lerna": "^5.1.5",
-    "nx": "^14.3.6"
+    "lerna": "^5.1.5"
   },
   "scripts": {
-    "dev": "lerna run dev"
+    "dev": "concurrently \"yarn workspace @flow-fast/webfront dev\" \"yarn workspace @flow-fast/mainstage dev\""
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "dependencies": {
+    "concurrently": "^7.2.2"
   }
 }

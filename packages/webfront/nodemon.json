@@ -1,0 +1,6 @@
+{
+  "ignore": ["node_modules", ".next"],
+  "watch": ["../mainstage"],
+  "ext": "js json",
+  "exec": "NODE_OPTIONS='--inspect' next dev"
+}
