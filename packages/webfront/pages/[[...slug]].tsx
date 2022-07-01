@@ -15,8 +15,7 @@ type DefaultProps = {
 
 const Default: NextPage<DefaultProps> = (props: DefaultProps) => {
 	return (
-		<h1 className=''>
-			Hello world!
+		<div id={'flow-fast-main'}>
 			{
 				props.content.map(e => {
 					const key = Object.keys(e)[0];
@@ -24,7 +23,7 @@ const Default: NextPage<DefaultProps> = (props: DefaultProps) => {
 					return <BlockRenderer data={e[key]} id={key} />;
 				})
 			}
-		</h1>
+		</div>
 	);
 };
 
