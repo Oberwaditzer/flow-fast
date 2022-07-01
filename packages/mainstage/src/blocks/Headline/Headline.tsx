@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-const Headline = () => {
-	return <h1>headline4</h1>;
+type HeadlineProps = {
+	text: string
+}
+
+const Headline: FC<HeadlineProps> = ({text}) => {
+	return <h1>{text}</h1>;
 };
 
 export default Headline;
