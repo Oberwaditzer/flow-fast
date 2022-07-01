@@ -3,7 +3,6 @@
   "compilerOptions": {
     "isolatedModules": true,
     "noEmit": true,
-    "allowSyntheticDefaultImports": true,
-    "incremental": true
+    "allowSyntheticDefaultImports": true
   }
 }
