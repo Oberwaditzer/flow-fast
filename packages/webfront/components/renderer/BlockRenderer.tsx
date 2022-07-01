@@ -1,10 +1,11 @@
-import React, { Suspense, ReactNode } from 'react';
+import React, { Suspense } from 'react';
 import { blocks } from '../../blocks/blocks';
-import { NewHedline } from '@flow-fast/mainstage';
-import { Headline } from '@flow-fast/mainstage/dist';
+import classNames from 'classnames';
 
 type BlockRendererProps = {
-	data: any,
+	data: {
+		isFullWidth: boolean
+	},
 	id: string
 }
 
@@ -15,9 +16,13 @@ const BlockRenderer = ({ data, id }: BlockRendererProps) => {
 		return null;
 	}
 	return (
-		<Suspense fallback={<p>Loading...</p>}>
-			<Component {...data} />
-		</Suspense>
+		<div className={classNames('w-full', {
+			'px-8': !data.isFullWidth,
+		})}>
+			<Suspense fallback={<p>Loading...</p>}>
+				<Component {...data} />
+			</Suspense>
+		</div>
 	);
 };
 

@@ -1,2 +1,2 @@
 export * from './blocks';
-export * from './blocks/Headline'
+export * from './types';
