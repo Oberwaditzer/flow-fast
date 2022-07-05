@@ -1,11 +1,31 @@
 import type { NextPage } from 'next';
+import { Sidebar } from '../../components/Navigation/Sidebar/Sidebar';
+import { NextPageWithLayout } from '../../types/pages/NextPageWithLayout';
+import { Component, ReactElement } from 'react';
+import Head from 'next/head';
 
-const Admin: NextPage = () => {
+const Admin: NextPageWithLayout = () => {
 	return (
-		<h1 className='text-3xl font-bold underline'>
-			Admin
-		</h1>
+		<>
+			<Head>
+				<title>Admin</title>
+			</Head>
+			<p>Admin Dashboard</p>
+		</>
 	);
 };
+
+const AdminBasicLayout = (page: ReactElement) => {
+	return (
+		<div className={'h-screen flex'}>
+			<Sidebar />
+			{page}
+		</div>
+	);
+};
+
+Admin.getLayout = AdminBasicLayout;
+
+export { AdminBasicLayout };
 
 export default Admin;
