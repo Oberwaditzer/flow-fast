@@ -1,11 +1,21 @@
-import type {NextPage} from 'next'
+import type { NextPage } from 'next';
+import Admin, { AdminBasicLayout } from '../../index';
+import { NextPageWithLayout } from '../../../../types/pages/NextPageWithLayout';
+import Head from 'next/head';
 
-const Page: NextPage = () => {
-    return (
-        <h1 className="text-3xl font-bold underline">
-            Admin / Sites / Static
-        </h1>
-    )
-}
+const Page: NextPageWithLayout = () => {
+	return (
+		<>
+			<Head>
+				<title>Static Pages</title>
+			</Head>
+			<h1>
+				Static Pages
+			</h1>
+		</>
+	);
+};
+
+Page.getLayout = AdminBasicLayout;
 
 export default Page;
