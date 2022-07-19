@@ -1,21 +1,20 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { CalendarIcon, ChartBarIcon, FolderIcon, HomeIcon, InboxIcon, UsersIcon } from '@heroicons/react/outline';
 import Link from 'next/link';
+import { FC } from 'react';
+import { useRouter } from 'next/router';
 
-const navigation = [
-	{ name: 'Dashboard', icon: HomeIcon, href: '/admin', current: true },
-	{ name: 'Static Pages', icon: UsersIcon, href: '/admin/sites/static', count: 2, current: false },
-	{ name: 'Projects', icon: FolderIcon, href: '#', count: 4, current: false },
-	{ name: 'Calendar', icon: CalendarIcon, href: '#', current: false },
-	{ name: 'Documents', icon: InboxIcon, href: '#', current: false },
-	{ name: 'Reports', icon: ChartBarIcon, href: '#', count: 12, current: false },
-];
 
 function classNames(...classes) {
 	return classes.filter(Boolean).join(' ');
 }
 
-const Sidebar = () => {
+type SidebarItemProps = {
+	navigation: any[]
+}
+
+const Sidebar: FC<SidebarItemProps> = ({navigation}) => {
+	const router = useRouter();
 	return (
 		<div className={'flex w-64'}>
 			<div className='flex-1 flex flex-col min-h-0 bg-gray-800'>
@@ -28,7 +27,7 @@ const Sidebar = () => {
 							<Link href={item.href} key={item.name}>
 								<a
 									className={classNames(
-										item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+										item.href === router.pathname ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
 										'group flex items-center px-2 py-2 text-sm font-medium rounded-md',
 									)}
 								>
